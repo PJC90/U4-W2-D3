@@ -11,7 +11,7 @@ public class Customer {
         this.name = name;
         this.tier = tier;
         Random rm = new Random();
-        this.id = (long) rm.nextInt(1,100000);
+        this.id = rm.nextLong(1,10000);
     }
 
     public Long getId() {

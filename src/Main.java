@@ -80,6 +80,14 @@ public class Main {
 
         System.out.println("************  Carrello  **************");
 //        carrello.forEach(car -> System.out.println(car.getCustomer().getName()));     //****Prova1****
-
+        List<Order> tier2order = orderList.stream().filter(order -> order.getCustomer().getTier() == 2
+                && order.getOverDate().isAfter(LocalDate.parse("2023-12-05"))
+                        && order.getOverDate().isBefore(LocalDate.parse("2023-12-09"))
+                ).toList();
+        List<Product> tier2Product = new ArrayList<>();
+        tier2order.forEach(order -> {
+            tier2Product.addAll(order.getProducts());
+        });
+        tier2Product.forEach(System.out::println);
     }
 }
